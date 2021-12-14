@@ -383,11 +383,9 @@ footer .footer-bottom span {
   left: 0;
   height: 100%;
   width: 100%;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
-  visibility: hidden;
-  opacity: 0;
 }
 
 .preloader svg {

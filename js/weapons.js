@@ -30,6 +30,7 @@ getWeapons(url)
       if (vidUrl === null){
         alert("Fininsher Not Available");
         finisherClose();
+        document.querySelector('.finisher_vid').style.display = 'none';
       } else {
         document.getElementById('fvid').src = vidUrl;
       }
@@ -38,25 +39,18 @@ getWeapons(url)
 })
 
 function finisherPlay() {
-  let finisherVideo = document.getElementById("fvid");
-  document.querySelector('.finisher_vid').style.visibility = 'visible';
-  document.querySelector('.finisher_vid').style.opacity = 1;
-  finisherVideo.play();
+  document.querySelector('.finisher_vid').style.display = 'flex';
 }
 
 function finisherClose() {
+  let x = document.querySelector('.finisher_vid')
   let finisherVideo = document.getElementById("fvid");
-  document.querySelector('.finisher_vid').style.visibility = 'hidden';
-  document.querySelector('.finisher_vid').style.opacity = 0;
-  finisherVideo.pause();
-}
+  x.onclick = function(div) {
+    if (div.target.id !== 'fvid'){
+      x.style.display = 'none';
+      finisherVideo.pause();
+    }
+  };
 
-window.document.onkeydown = function(e) {
-  if (!e) {
-    e = event;
-  }
-  if (e.keyCode == 27) {
-    finisherClose();
-  }
 }
 
