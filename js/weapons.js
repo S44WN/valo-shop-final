@@ -7,7 +7,7 @@ async function getWeapons(uname) {
   return weapons
 }
 
-let url = `https://fig6jjc1bj.execute-api.ap-south-1.amazonaws.com/dev/store/${_ritoUsername_}`
+let url = `https://api.checkvalorant.com/store/store/${_ritoUsername_}`
 
 getWeapons(url)
 .then(weapons => {
