@@ -27,7 +27,7 @@ form.addEventListener('submit', (e) => {
     return loginData
   }
 
-  let url = "https://fig6jjc1bj.execute-api.ap-south-1.amazonaws.com/dev/login";
+  let url = "https://api.checkvalorant.com/login/login";
   let data = {
     "RitoID": username,
     "RitoPass": password,
