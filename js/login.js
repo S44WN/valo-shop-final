@@ -32,21 +32,37 @@ form.addEventListener('submit', (e) => {
     "RitoID": username,
     "RitoPass": password,
     }
+
   
-  if (username === localStorage.getItem('username') && password === localStorage.getItem('password')){
-    window.open("/weapons.html", target="_self");
-  }else{
-    alert("U might have changed ur password, Plz login again :)")
-    getWeapons(url, data)
-    .then((wep) => {
-      if (wep.status === 200){
-        window.open("/weapons.html", target="_self");
-        document.querySelector('.preloader').style.display = 'none';
-      }else{
-        alert("Something Went Wrong :( , Plz Try Again ;)");
-        document.querySelector('.preloader').style.display = 'none';
-      }
-      });
-  }
+  getWeapons(url, data)
+  .then((wep) => {
+        if (wep.status === 200){
+          window.open("/weapons.html", target="_self");
+          document.querySelector('.preloader').style.display = 'none';
+        }else{
+          alert("Something Went Wrong :( , Plz Try Again ;)");
+          document.querySelector('.preloader').style.display = 'none';
+        }
+        });
+  //     if (wep.status === 200){
+  //       window.open("/weapons.html", target="_self");
+  //       document.querySelector('.preloader').style.display = 'none';
+  //     }
+  
+  // if (username === localStorage.getItem('username') && password === localStorage.getItem('password')){
+  //   window.open("/weapons.html", target="_self");
+  // }else{
+  //   alert("U might have changed ur password, Plz login again :)")
+  //   getWeapons(url, data)
+  //   .then((wep) => {
+  //     if (wep.status === 200){
+  //       window.open("/weapons.html", target="_self");
+  //       document.querySelector('.preloader').style.display = 'none';
+  //     }else{
+  //       alert("Something Went Wrong :( , Plz Try Again ;)");
+  //       document.querySelector('.preloader').style.display = 'none';
+  //     }
+  //     });
+  // }
 
 })

@@ -1,9 +1,9 @@
 
 let _ritoUsername_ = localStorage.getItem('username')
 
-async function getWeapons(url) {
-  let response = await fetch(url)
-  let weapons = await response.json();
+async function getWeapons(url){
+  var response = await fetch(url)
+  var weapons = await response.json();
   return weapons
 }
 
@@ -11,7 +11,6 @@ let url = `https://api.checkvalorant.com/store/store/${_ritoUsername_}`
 
 getWeapons(url)
 .then(weapons => {
-
   document.getElementById('uname').innerText = localStorage.getItem('username')
 
   document.getElementById('weapon1').src = weapons['weaponskins'][1].image ;
@@ -37,6 +36,7 @@ getWeapons(url)
     });
   });
 })
+
 
 function finisherPlay() {
   document.querySelector('.finisher_vid').style.display = 'flex';
