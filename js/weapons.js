@@ -1,9 +1,9 @@
 
 let _ritoUsername_ = localStorage.getItem('username')
 
-async function getWeapons(uname) {
-  var response = await fetch(url)
-  var weapons = await response.json();
+async function getWeapons(url) {
+  let response = await fetch(url)
+  let weapons = await response.json();
   return weapons
 }
 
