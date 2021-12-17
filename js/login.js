@@ -1,6 +1,6 @@
 
 let form = document.getElementById('login');
-let username, password;
+let username, password, region;
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -9,9 +9,9 @@ form.addEventListener('submit', (e) => {
 
   username = document.getElementById('riotid').value;
   password = document.getElementById('pswrd').value;
-  localStorage.setItem('username', username);
-  localStorage.setItem('password', password);
+  region = document.getElementById('region').value;
 
+  console.log(username, password)
 
   async function getWeapons(url, data) {
     let response = await fetch(url, {
@@ -31,38 +31,33 @@ form.addEventListener('submit', (e) => {
   let data = {
     "RitoID": username,
     "RitoPass": password,
+    "Region": region
     }
+  
+  if (username === localStorage.getItem('username') && password === localStorage.getItem('password')){
+    window.open("/weapons.html", target="_self");
+    document.querySelector('.preloader').style.display = 'none';
+  }
+  else{
+    getWeapons(url, data)
+    .then((wep) => {
+      if (wep.status === 200){
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+        window.open("/weapons.html", target="_self");
+        document.querySelector('.preloader').style.display = 'none';
+      }else{
+        alert("Wrong Credentials :( , Plz Try Again ;)");
+        form.reset()
+        document.querySelector('.preloader').style.display = 'none';
+      }
+      })
+    .catch(() => {
+      alert("Something Went Wrong :( , Plz Try Again ;)");
+      document.querySelector('.preloader').style.display = 'none';
+    })
 
-  
-  getWeapons(url, data)
-  .then((wep) => {
-        if (wep.status === 200){
-          window.open("/weapons.html", target="_self");
-          document.querySelector('.preloader').style.display = 'none';
-        }else{
-          alert("Something Went Wrong :( , Plz Try Again ;)");
-          document.querySelector('.preloader').style.display = 'none';
-        }
-        });
-  //     if (wep.status === 200){
-  //       window.open("/weapons.html", target="_self");
-  //       document.querySelector('.preloader').style.display = 'none';
-  //     }
-  
-  // if (username === localStorage.getItem('username') && password === localStorage.getItem('password')){
-  //   window.open("/weapons.html", target="_self");
-  // }else{
-  //   alert("U might have changed ur password, Plz login again :)")
-  //   getWeapons(url, data)
-  //   .then((wep) => {
-  //     if (wep.status === 200){
-  //       window.open("/weapons.html", target="_self");
-  //       document.querySelector('.preloader').style.display = 'none';
-  //     }else{
-  //       alert("Something Went Wrong :( , Plz Try Again ;)");
-  //       document.querySelector('.preloader').style.display = 'none';
-  //     }
-  //     });
-  // }
+  }
+
 
 })

@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valo-Shop</title>
-    <link rel="icon" type="image/png" href="/images/valorant.ico">
+    <link rel="icon" type="image/png" href="./images/valorant.ico">
     <script src="https://kit.fontawesome.com/914025c343.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -27,12 +27,12 @@
 	</div>
 
         <div class="longo">
-            <img class = "longo1" src="images/valoglow.png" alt="" />
-            <img class = "longo2" src="images/valogo.png" alt="" />          
+            <img class = "longo1" src="./images/valoglow.png" alt="" />
+            <img class = "longo2" src="./images/valogo.png" alt="" />          
         </div>
 
         <div class="jett">
-            <img class = "jettimg" src="images/jett.png" alt="Jett dashed ;}}" />
+            <img class = "jettimg" src="./images/jett.png" alt="Jett dashed ;}}" />
         </div>
 
         <div class="loginsec">
@@ -43,10 +43,10 @@
             </p>
             <div class="inpbt">
                 <form id='login' class="form">
-					<input type="text" id="riotid" name="riotid" placeholder="RIOT ID"><br>
-					<input type="password" id="pswrd" name="pswrd" placeholder="PASSWORD"><br>
+					<input type="text" id="riotid" name="riotid" placeholder="RIOT ID" required><br>
+					<input type="password" id="pswrd" name="pswrd" placeholder="PASSWORD" required><br>
                     <div class="select">
-                        <select name="region" id="region" placeholder="choose region">
+                        <select name="region" id="region" required>
                             <option value="" disabled selected hidden>Choose Region</option>
                             <option value="na">NA</option>
                             <option value="latam">LATAM</option>
@@ -60,9 +60,7 @@
                 </form>
             </div>
         </div>
-
     </div>
-
 
     <footer class="footer">
         <div class="footer-content">
@@ -91,6 +89,6 @@
           <circle class="ripple ripple2" cx="80" cy="80" r="40"></circle>
         </svg>
     </div>
-<script src="js/login.js"></script>
+<script src="./js/login.js"></script>
 </body>
 </html>

@@ -11,17 +11,12 @@ let url = `https://api.checkvalorant.com/store/store/${_ritoUsername_}`
 
 getWeapons(url)
 .then(weapons => {
-  document.getElementById('uname').innerText = localStorage.getItem('username')
+  document.getElementById('uname').innerText = localStorage.getItem('username');
 
-  document.getElementById('weapon1').src = weapons['weaponskins'][1].image ;
-  document.getElementById('weapon2').src = weapons['weaponskins'][2].image ;
-  document.getElementById('weapon3').src = weapons['weaponskins'][3].image ;
-  document.getElementById('weapon4').src = weapons['weaponskins'][4].image ;
-
-  document.getElementById('name1').innerText = weapons['weaponskins'][1].name ;
-  document.getElementById('name2').innerText = weapons['weaponskins'][2].name ;
-  document.getElementById('name3').innerText = weapons['weaponskins'][3].name ;
-  document.getElementById('name4').innerText = weapons['weaponskins'][4].name ;
+  for (let wp_no = 1; wp_no < 5; wp_no++) {
+    document.getElementById(`weapon${wp_no}`).src = weapons['weaponskins'][wp_no].image ;
+    document.getElementById(`name${wp_no}`).innerText = weapons['weaponskins'][wp_no].name ;
+  }
 
   document.querySelectorAll('.finisher').forEach(function(vidbutton){
     vidbutton.addEventListener('click', function() {
@@ -35,6 +30,9 @@ getWeapons(url)
       }
     });
   });
+})
+.catch(() => {
+  alert("Something Went Wrong :( , Plz Try Again ;)");
 })
 
 

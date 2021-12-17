@@ -371,7 +371,6 @@ footer .footer-bottom span {
 
 @media screen and (max-width: 1230px) {
   .main .longo {
-    /* background-color: aqua; */
     opacity: 0.4;
   }
 }
@@ -387,6 +386,7 @@ footer .footer-bottom span {
   justify-content: center;
   align-items: center;
 }
+
 
 .preloader svg {
   width: 100px;
